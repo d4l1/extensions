@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "ImageFlow",
+  "version": "1.0",
+  "description": "Extension to display images from Pexels",
+  "permissions": ["activeTab", "storage", "downloads"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/iflow.png",
+      "48": "images/iflow.png",
+      "128": "images/iflow.png"
+    }
+  },
+  "icons": {
+    "16": "images/iflow.png",
+    "48": "images/iflow.png",
+    "128": "images/iflow.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'",
+    "sandbox": "sandbox allow-scripts; allow-same-origin; allow-wasm eval"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["popup.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
